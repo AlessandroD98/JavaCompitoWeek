@@ -79,7 +79,7 @@ public class Archivio {
                 } catch (IOException e) {
                     System.out.println("Errore durante la lettura del catalogo.");
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Errore durante la lettura del catalogo: " + e.getMessage());
+                    System.out.println("Errore durante la lettura del catalogo");
                 }
                 break;
             case 6 :
