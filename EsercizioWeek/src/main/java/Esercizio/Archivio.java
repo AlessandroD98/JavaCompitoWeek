@@ -31,7 +31,7 @@ public class Archivio {
 	public static void GestioneCatalogo(List<ElementoCatalogo> arr)  {
 		
 		while(true) {
-		System.out.println("Seleziona una delle seguenti opzioni: \n 1 AGGIUNGI ELEMENTO \n 2 ELIMINA ELEMENTO(ISBN) \n 3 RICERCA UN ELEMENTO \n 4 SALVA CATALOGO \n 5 CARICA CATALOGO ");
+		System.out.println("Seleziona una delle seguenti opzioni: \n 1 AGGIUNGI ELEMENTO \n 2 ELIMINA ELEMENTO(ISBN) \n 3 RICERCA UN ELEMENTO \n 4 SALVA CATALOGO \n 5 CARICA CATALOGO \n 6 VISUALIZZA CATALOGO  ");
 		int scelta = s.nextInt();
 		s.nextLine(); // consume newline character
 
@@ -68,10 +68,10 @@ public class Archivio {
                 break;
             case 5:
             	try {
-                    arr = caricaCatalogo();
                     if (arr.isEmpty()) {
                         System.out.println("Il file del catalogo è vuoto o non esiste. Prova a aggiungere un catalogo prima di caricarlo.");
                     } else {
+                    	arr = caricaCatalogo();
                         System.out.println("Catalogo caricato correttamente.");
                     }
                 } catch (FileNotFoundException e) {
@@ -82,6 +82,13 @@ public class Archivio {
                     System.out.println("Errore durante la lettura del catalogo: " + e.getMessage());
                 }
                 break;
+            case 6 :
+            	if(arr.isEmpty()) {
+            		System.out.println("Carica o aggiungi un elemento per visualizzarlo");
+            	} else {
+            		 PrintArray(arr);
+            	}
+            	break;
             default:
                 System.out.println("Scelta non valida.");
         	}
@@ -103,8 +110,6 @@ public class Archivio {
 				arr.add(new Rivista());
 			}
 		}
-		PrintArray(arr);
-		
 	}
 	
 	public static List<ElementoCatalogo> removeByISBN (List<ElementoCatalogo> arr) {
@@ -169,7 +174,7 @@ public class Archivio {
 	        Integer Anno = (Integer) query;
 	        arr.stream().filter(e -> e.AnnoPubb == Anno).forEach(res -> System.out.println(ElementoCatalogo.toString(res)));
 	    } else {
-	        System.out.println("Tipo non supportato: " + query.getClass().getSimpleName());
+	        System.out.println("Tipo non supportato");
 	        return;
 	    }
 	}
