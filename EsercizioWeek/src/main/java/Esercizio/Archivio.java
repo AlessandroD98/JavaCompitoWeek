@@ -54,6 +54,7 @@ public class Archivio {
             	}
             	break;
             case 4:
+            	
             	if(arr.isEmpty()) {
             		System.out.println("Non ci sono elementi da salvare, inizia aggiungendone uno! \n");
             	} else {
@@ -68,7 +69,8 @@ public class Archivio {
                 break;
             case 5:
             	try {
-                    if (arr.isEmpty()) {
+            		File file = new File("C:/Users/Alessandro/eclipse-workspace/Epicode/JavaCompitoWeek/EsercizioWeek/catalogo.txt");
+                    if (!file.exists()) {
                         System.out.println("Il file del catalogo è vuoto o non esiste. Prova a aggiungere un catalogo prima di caricarlo.");
                     } else {
                     	arr = caricaCatalogo();
@@ -187,15 +189,15 @@ public class Archivio {
 	    for (ElementoCatalogo elemento : arr) {
 	        if (elemento instanceof Libro) {
 	            Libro libro = (Libro) elemento;
-	            righeCatalogo.add("Libro;" + libro.getISBN() + ";" + libro.getTitolo() + ";" + libro.getAnnoPubb() + ";" + libro.getNumOfPage() + ";" + libro.getAutore() + ";" + libro.getGenere());
+	            righeCatalogo.add("Libro;" + libro.getISBN() + ";" + libro.getTitolo() + ";" + libro.getAnnoPubb() + ";" + libro.getNumOfPage() + ";" + libro.getAutore() + ";" + libro.getGenere() + ";" );
 	        } else if (elemento instanceof Rivista) {
 	            Rivista rivista = (Rivista) elemento;
-	            righeCatalogo.add("Rivista;" + rivista.getISBN() + ";" + rivista.getTitolo() + ";" + rivista.getAnnoPubb() + ";" + rivista.getNumOfPage() + ";" + rivista.getUscitaPeriodicita());
+	            righeCatalogo.add("Rivista;" + rivista.getISBN() + ";" + rivista.getTitolo() + ";" + rivista.getAnnoPubb() + ";" + rivista.getNumOfPage() + ";" + rivista.getUscitaPeriodicita() + ";" );
 	        }
 	    }
 
 	    File file = new File("catalogo.txt");
-	    FileUtils.writeLines(file, righeCatalogo);
+	    FileUtils.writeLines(file, righeCatalogo, System.getProperty("line.separator"));
 		
 	}
 	
@@ -246,7 +248,7 @@ public class Archivio {
 	}
 	
 	public static void PrintArray(List<ElementoCatalogo> arr) {
-		System.out.println("\n Il catalogo comprende: " + arr.size() + (arr.size() > 1 ? " Elementi \n" : " Elemento \n"));
+		System.out.println("\nIl catalogo comprende: " + arr.size() + (arr.size() > 1 ? " Elementi \n" : " Elemento \n"));
 		ToArray(arr);
 	}
 	
