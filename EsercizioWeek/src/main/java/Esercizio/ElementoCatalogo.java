@@ -43,7 +43,9 @@ public class ElementoCatalogo {
 		
 		long num = System.currentTimeMillis();
 		Random rnum = new Random(num);
-		this.ISBN= (rnum.nextLong() % 90000000000000l) + 100000000000000l;
+		long isbn = Math.abs(rnum.nextLong()) % 9000000000000L + 1000000000000L;
+		isbn *= 10L;
+		this.ISBN = isbn;
 	}
 	
 	protected void setTitolo() {
