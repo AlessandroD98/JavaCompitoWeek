@@ -7,11 +7,12 @@ public class Rivista extends ElementoCatalogo {
 	enum Uscita {
 		SETTIMANALE, MENSILE, SEMESTRALE
 	}
-	
+	private Boolean check;
 	public Uscita Periodicità;
 	
-	public Rivista() {
+	public Rivista(Boolean check) {
 		this.setPeriodicità();
+		this.check = check;
 	}
 	
 	public Rivista(long ISBN, String Titolo, int annoPubb, int numOfPage, Uscita Periodicità) {
@@ -20,6 +21,14 @@ public class Rivista extends ElementoCatalogo {
 		this.AnnoPubb = annoPubb;
 		this.numOfPage = numOfPage;
 		this.Periodicità = Periodicità;
+	}
+	
+	public Boolean getCheck() {
+		return this.check;
+	}
+	
+	public void setCheck(Boolean check) {
+		this.check = check;
 	}
 	
 	public Uscita getUscitaPeriodicita() {

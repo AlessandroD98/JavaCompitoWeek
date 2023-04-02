@@ -107,9 +107,9 @@ public class Archivio {
 			if(agg.equals("E")) {
 				exit = "esci";
 			}else if (agg.equals("L")) {
-				arr.add(new Libro());
+				arr.add(new Libro(true));
 			} else if (agg.equals("R")) {
-				arr.add(new Rivista());
+				arr.add(new Rivista(true));
 			}
 		}
 	}

@@ -4,11 +4,15 @@ public class Libro extends ElementoCatalogo {
 
 	public String autore;
 	public String genere;
+	private Boolean check;
 	
-	public Libro() {
+	public Libro() {}
+	
+	public Libro(Boolean c) {
 		super();
 		this.setAutore();
 		this.setGenere();
+		this.check = c;
 	}
 	
 	public Libro(long ISBN, String Titolo, int AnnoPubb, int numOfPage, String autore, String genere) {
@@ -18,6 +22,14 @@ public class Libro extends ElementoCatalogo {
 		this.numOfPage = numOfPage;
 		this.autore = autore;
 		this.genere = genere;
+	}
+	
+	public Boolean getCheck() {
+		return this.check;
+	}
+	
+	public void setCheck(Boolean check) {
+		this.check = check;
 	}
 	
 	public String getAutore() {

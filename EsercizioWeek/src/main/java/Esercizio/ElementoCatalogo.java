@@ -75,10 +75,10 @@ public class ElementoCatalogo {
 	public static String toString(ElementoCatalogo e) {
 		if (e instanceof Libro ) {
 			Libro l = (Libro) e;
-			return "Tipologia : Libro" + " \n Titolo: " + l.Titolo + " \n Autore: " + l.autore + " \n Anno di pubblicazione: " + l.AnnoPubb + " \n Genere: " + l.genere + " \n Numero di pagine: " + l.numOfPage + " \n Codice ISBN: " + l.ISBN + "\n";
+			return "Tipologia : Libro" + " \n Titolo: " + l.getTitolo() + " \n Autore: " + l.getAutore() + " \n Anno di pubblicazione: " + l.getAnnoPubb() + " \n Genere: " + l.getGenere() + " \n Numero di pagine: " + l.getNumOfPage() + " \n Codice ISBN: " + l.getISBN() + "\n";
 		} else if (e instanceof Rivista) {
 			Rivista r = (Rivista) e;
-			return "Tipologia : Rivista" +  " \n Titolo: " + r.Titolo + " \n Anno di pubblicazione: " + r.AnnoPubb + " \n Numero di pagine: " + r.numOfPage + " \n Periodicità: " + r.Periodicità + " \n Codice ISBN: " + r.ISBN + "\n";
+			return "Tipologia : Rivista" +  " \n Titolo: " + r.getTitolo()+ " \n Anno di pubblicazione: " + r.getAnnoPubb() + " \n Numero di pagine: " + r.getNumOfPage() + " \n Periodicità: " + r.getUscitaPeriodicita() + " \n Codice ISBN: " + r.getISBN() + "\n";
 		} else return ">>Inserisci un Libro o una Rivista";
 	}
 	
